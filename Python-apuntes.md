@@ -1,0 +1,255 @@
+
+#     APUNTES DE PYTHON FRAN LEON
+
+## Variables en Python
+
+    * manolo = "Esto es una cadena de texto"  ->  "Tipo (String)"
+      print("manolo")
+    * pepe = 48348348  -> "Tipo Int (Entero)"
+     
+   ***> No ponerlo nunca entre comillas o se convierte en cadena***
+   
+     print(pepe)
+     maria = 2.40    - > "Tipo Float (Flotante)"  
+     print(maria)
+
+**> Ojo: En las variables de tipo Float poner siempre . (punto) en vez de , (comas) para no confundir al interprete de Python, nunca entre comillas**
+
+---
+* **Saber el tipo de la variable**
+
+> 
+
+    print(type(manolo)) -> Mostrará que del tipo String <class 'str'>
+    print(type(pepe)) -> Mostrará que es del tipo Int <class 'int'>
+    print(type(maria)) -> Mostrará que es del tipo Float  <class 'float'>
+
+------
+### Tipos de datos - Boleanos 
+------
+Es un tipo de dato que solo puede tomar dos valores o **verdadero (True) o Falso (False)**. 
+
+> > Las primeras letras del valor True,False siempre en Mayusculas
+
+    verdadero = True
+    falso = False
+
+-> - **Saber el tipo de la clase booleana**
+  
+      print(type(verdadero)) -> Mostrará que del tipo Boleano <class 'bool'>
+
+ 
+------
+### Tipos de datos - Listas en Python 
+-----
+
+    Lista = [] <- Lista declarada vacia 
+    Lista = ["valor", "valor2",valor3INT,valor4Float, valor5True] 
+**> Se declaran entre corchetes y se pueden meter variables de todo tipo, asi como datos boleanos**
+
+    lista = ["manolo",int,float,True,False]
+    print(lista)
+    ['manolo', 48348348, 2.4, True, False]
+    print(type(lista))   -> Muestra que es de clase Lista <class 'list'>
+
+**> El primer valor dentro de una lista es el 0, y va en progresión. 0,1,2,3,4,etc (Segun los objetos de la lista)**
+
+> Para mostrar el primer valor de la lista
+
+* `print(lista[0])`  <- Se cambia el 0 por la posición que queremos mostrar. si ponemos de posición -1 nos muestra el ultimo valor, -2 el penultimo etc.
+
+## Metodos en Python
+
+**Un método** realmente es una acción **que** puede realizar el objeto
+
+> Para invocar un metodo se pone el nombre de la variable seguida de un punto. y con argumentos
+
+**> Metodos en listas** 
+
+    lista.append(2) - Agrega un elemento (En este caso un entero 2) al final de la lista
+    lista.pop([0]) - Elimina un item segun su posicion, eliminaria la primera posicion de la lista.
+    lista.index(2.40) - Te dice la posicion de un elemento segun su valor, en este caso te indica donde estaria la variable float con valor 2.40.
+    lista.insert() <- inserta un elemento
+    lista.reverse() <- Da la vuelta a los elementos de la lista
+    lista.remove(2.40) <- Elimina un elemento de la lista segun su valor
+    lista.extend <- Extiende la lista
+    lista.count(2.40) <- Devuelve el numero de veces que aparece X valor en la lista
+    lista.clear() <- Borra toda la lista
+
+------
+### Tipos de datos - Tuplas
+-----
+
+**Es una lista con dos valores, pero en Python se pueden hacer mas grande y ya no seria una tupla seria un SET**
+
+    tupla = ("valor1",valor2) <- Entre parentesis
+    tupla2  = ("hola", 3.50)
+
+* **SET**
+
+ `tupla3 = "valor1", valor2, "valor3",valor4)`
+
+**Tambien se pueden acceder segun su indice comenzando en 0 siempre**
+
+    print(tupla([0])
+
+ - **Metodos de tuplas más utilizados**
+
+> print(tupla.count(valorabuscar))   print(tupla2.count(3.50)) 
+> tupla.index(valor) <- Indica en que posición de nuestra tupla esta el
+> valor  print(tupla2.index(3.50))
+
+-------
+### Tipos de datos - Diccionarios
+-----
+*Formados** por:
+ 
+
+**clave:valor**
+
+> van entre {} - Es el mismo formato de un JSON
+
+ - **Ejemplo de un JSON  que es como un diccionario**
+
+"shipTo" : { "name" : "Bob Brown", "address" : "456 Oak Lane", "city" : "Pretendville", "state" : "HI", "zip" : "98999" },
+
+    diccionario = {"clave":valor,"clave2":valor2,"clave3":valor3,"clave4":valor}
+    goles  = {"cristiano":18,"messi":10, "ronaldo":12, "pepe":0}
+    print(goles)
+    {'cristiano': 18, 'messi': 10, 'ronaldo': 12, 'pepe': 0}
+
++ **Metodos de diccionarios más utilizados**    
+
+>     goles.pop()
+>     goles.update()
+>     goles.copy()
+>     goles.items()
+
+    goles.keys() -> Muestra las keys (claves) del diccionario
+    dict_keys(['cristiano', 'messi', 'ronaldo', 'pepe'])
+    goles.values -> Muestra los valores del diccionario
+    dict_values([18, 10, 12, 0])
+    goles.clear() -> Elimina toda la lista
+
+*Casi los mismos metodos que en las listas*
+
+---
+### Convertir un diccionario en una lista
+---
+
+    lista1 = list(goles.keys())
+    lista2 = list(goles.values())
+
+Para coger un valor podemos hacer ahora
+
+    print(lista1[0])
+    cristiano
+    print(lista2[0])
+    18
+
+-----
+### Conversiones de variables
+----
+
+    manolo = "123456" <- Tipo String
+    manoloanumero = int(manolo) <- Ya se convierte en cadena
+    print(type(manoloanumero))
+    <class 'int'>
+    
+    manoloafloat = float(manolo)  <- Convierte a Float
+    <class 'float'>
+    
+    manolo = 123456 <- Entero 
+    manoloastring = str(manolo) <- Convierte a String
+    
+    manolo = True
+    manoloaentero = int(manolo)
+    1  (Muestra un valor de 1 al ser verdadero(Boleano True) convertido a entero)
+    
+    manolo = False
+    manoloaentero = int(manolo)
+    0  (Muestra un valor de 0 al ser falso(Boleano False) convertido a entero)
+    
+    manolo = [10,9,8,7] 
+    manoloastr = str(manolo) <- Convierte una lista a String
+    
+    manolo = {"Manolo":6, "Pepe":8,"Jose":3}
+    manoloasrt = str(manolo)) <- Convierte un diccionario a String
+    
+    manolo = (10,8)
+    manoloastr = str(manolo) <- Convierte una tupla a String
+
+----
+### Pedir datos al usuario
+-------
+
+**> Con la orden input solicitamos al usuario insertar unos datos.**
+
+    nombre = input("¿Cual es tu nombre: "))
+
+> Ejemplo calculadora IMC
+
+    peso = float(input("¿Cual es tu peso?: "))
+    altura = float(input("¿Cual es tu altura?: ")) / 100
+    imc = ((peso)/(altura*altura))
+    print("Tu iMC es:"+str(imc))
+
+----
+### Operadores aritmeticos
+-----
+
+    a = 22
+    b = 10
+
+    suma = a + b
+    resta = b - a 
+    division = a / b
+    multiplicacion = a * b
+    modulo = a % b 
+
+Este **% se conoce como "modulo"** es simplemente el resto de una division
+
+    print(2*3+5)
+    print(2*(3+5))
+
+> **Ejemplo calculadora**
+
+***(El input por defecto es una cadena de Texto por eso hay que convertirlo a entero para pedir valores numericos.)***
+
+    a = int(input("Inserte primer numero: "))
+    b = int(input("Inserte segundo numero: "))
+    resultado = a+b
+    print (resultado)
+
+**> Tambien se puede hacer con:**
+
+> print(f"Cadena {variable}")
+
+    print(f"Su resultado es: {resultado}")
+
+-----
+### Importar Librerias
+-------
+
+Con la palabra reservada **import** podemos importar librerias a nuestro programa en python
+
+> por ejemplo 
+
+**import math**
+
+Al igual que con otros objetos. Poniendo el **(. punto detras de la libreria)**
+
+## math.
+
+ **> podemos ver todos los metodos que tiene disponibles esa libreria.**
+
+> Los mas usados son:
+
+
+
+ 
+
+
+
+
+
